@@ -18,15 +18,25 @@ let map: Map = new Map({
     })
 });
 
-var lonLat = new LonLat( -0.1279688 ,51.5077286 )
-    .transform(
-        new Projection("EPSG:4326"),
-        map.getProjectionObject()
-    );
+// var lonLat = new LonLat( -0.1279688 ,51.5077286 )
+//     .transform(
+//         new Projection("EPSG:4326"),
+//         map.getProjectionObject()
+//     );
 
-var markers = new Layer.Markers( "Markers" );
-map.addLayer(markers);
+// var markers = new Layer.Markers( "Markers" );
+// map.addLayer(markers);
 
-markers.addMarker(new Marker(lonLat));
+// markers.addMarker(new Marker(lonLat));
 
-map.setCenter(lonLat, zoom);
+
+
+setTimeout(() => {
+    navigator.geolocation.getCurrentPosition((pos) => {
+        console.log(map);
+        
+        // if (map) {
+        //     // map.setCenter([pos.coords.latitude, pos.coords.longitude], 5);
+        // }
+    });
+}, 200);
